@@ -1,5 +1,3 @@
-import Aoc2023.Lib.IO
-
 def convertNum (s : String) : String :=
     s.replace "one" "one1one"
     |>.replace "two" "two2two"
