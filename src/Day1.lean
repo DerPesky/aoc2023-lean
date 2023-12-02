@@ -24,5 +24,11 @@ def part2 (input : Array String) : Int :=
 def main : IO Unit := do
     let input1 ← IO.FS.lines "inputs/day1_1.txt"
     let input2 ← IO.FS.lines "inputs/day1_2.txt"
-    IO.println s!"Day 1\nPart 1: {part1 input1}"
-    IO.println s!"Part 2: {part2 input2}"
+
+    timeit s!"Day 1\nPart 1: {part1 input1}" do 
+        let _ := part1 input1
+        pure ()
+
+    timeit s!"Part 2: {part2 input2}" do 
+        let _ := part2 input2
+        pure ()
