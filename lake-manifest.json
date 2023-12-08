@@ -1,5 +1,14 @@
 {"version": 7,
  "packagesDir": ".lake/packages",
- "packages": [],
+ "packages":
+ [{"url": "https://github.com/leanprover/std5",
+   "type": "git",
+   "subDir": null,
+   "rev": "1f24793af1db9cfb02ba71c6de5f205481de4a55",
+   "name": "std",
+   "manifestFile": "lake-manifest.json",
+   "inputRev": "main",
+   "inherited": false,
+   "configFile": "lakefile.lean"}],
  "name": "aoc2023",
  "lakeDir": ".lake"}

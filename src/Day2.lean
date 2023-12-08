@@ -1,3 +1,4 @@
+namespace Day2
 structure Game where
     id : Nat
     maxR : Nat := 0
@@ -10,8 +11,7 @@ inductive Color where
 | Blue : Nat -> Color
 | None
 
--- Expected format "{num} {color}"
-def String.toColor (s : String) : Color :=
+def strToColor (s : String) : Color :=
     let sp := s.trim.splitOn " "
 
     match (sp.head!.toNat!, sp.getLast!.toLower) with
@@ -28,7 +28,7 @@ def parseGame (gameData : String) : Game :=
         match rest with
         | [] => acc
         | x :: xs =>
-            match x.toColor with
+            match strToColor x with
             | .Red r => parseRound ({ acc with maxR := r + acc.maxR }) xs
             | .Green g => parseRound ({ acc with maxG := g + acc.maxG }) xs
             | .Blue b => parseRound ({ acc with maxB := b + acc.maxB }) xs
@@ -62,9 +62,11 @@ def main : IO Unit := do
     let input2 ← IO.FS.lines "inputs/day2_2.txt"
 
     timeit s!"Day 2\nPart 1: {part1 input1.toList 12 13 14}" do 
-        let _ := part1 input1.toList 12 13 14
+        let a := part1 input1.toList 12 13 14
+        IO.println a
         pure ()
 
     timeit s!"Part 2: {part2 input2.toList}" do 
-        let _ := part2 input2.toList
+        let a := part2 input2.toList
+        IO.println a
         pure ()

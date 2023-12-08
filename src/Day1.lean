@@ -1,3 +1,5 @@
+namespace Day1
+
 def convertNum (s : String) : String :=
     s.replace "one" "one1one"
     |>.replace "two" "two2two"
